@@ -62,24 +62,48 @@ let defaultMode = pickerBox.options[pickerBox.selectedIndex].text.toLowerCase()
 function changeTwo(data){
     colorTwo.style.backgroundColor = data.colors[0].hex.value
     hexTwo.textContent = data.colors[0].hex.value
+    colorTwo.classList.remove("color")
+    colorTwo.classList.add("colorEmpty")
+    setTimeout(() => {
+        colorTwo.classList.remove("colorEmpty")
+        colorTwo.classList.add("color")
+        }, 100)
 }
 
 // Change Color and Hex Three
 function changeThree(data){
     colorThree.style.backgroundColor = data.colors[1].hex.value
     hexThree.textContent = data.colors[1].hex.value
+    colorThree.classList.remove("color")
+    colorThree.classList.add("colorEmpty")
+    setTimeout(() => {
+        colorThree.classList.remove("colorEmpty")
+        colorThree.classList.add("color")
+        }, 100)
 }
 
 // Change Color and Hex Four
 function changeFour(data){
     colorFour.style.backgroundColor = data.colors[2].hex.value
     hexFour.textContent = data.colors[2].hex.value
+    colorFour.classList.remove("color")
+    colorFour.classList.add("colorEmpty")
+    setTimeout(() => {
+        colorFour.classList.remove("colorEmpty")
+        colorFour.classList.add("color")
+        }, 100)
 }
 
 // Change Color and Hex Five
 function changeFive(data){
     colorFive.style.backgroundColor = data.colors[3].hex.value
     hexFive.textContent = data.colors[3].hex.value
+    colorFive.classList.remove("color")
+    colorFive.classList.add("colorEmpty")
+    setTimeout(() => {
+        colorFive.classList.remove("colorEmpty")
+        colorFive.classList.add("color")
+        }, 100)
 }
 
 // Website Default Load
@@ -106,9 +130,10 @@ let newSeed = "FF9F29"
 
 pickerColor.addEventListener("change", function(e){
         newSeed = e.target.value.slice(1, 7).toUpperCase()
+        colorOne.style.backgroundColor = pickerColor.value
+        hexOne.textContent = "#" + newSeed
         return newSeed
 })
-
 
 // User Color Mode
 
@@ -142,17 +167,26 @@ pickerScheme.addEventListener("click", function(){
     })
 })
 
-// Color Animation
+// Copy Text
 
-function growColor(){
-    colorTwo.classList.remove("color")
-    colorTwo.classList.add("colorEmpty")
-    setTimeout(() => {
-        colorTwo.classList.remove("colorEmpty")
-        colorTwo.classList.add("color")
-        }, 100)
+let colorCaptions = document.querySelectorAll(".caption-color")
+let allColors = document.querySelectorAll(".color")
+
+for(let i = 0; i < colorCaptions.length; i++){
+    allColors[i].addEventListener("click", function(e){
+        let copied = colorCaptions[i].textContent
+        navigator.clipboard.writeText(copied)
+        colorCaptions[i].textContent = "Copied!"
+        setTimeout(() => {
+            colorCaptions[i].textContent = copied
+        }, 200)
+    })
+    colorCaptions[i].addEventListener("click", function(e){
+        let copied = colorCaptions[i].textContent
+        navigator.clipboard.writeText(copied)
+        colorCaptions[i].textContent = "Copied!"
+        setTimeout(() => {
+            colorCaptions[i].textContent = copied
+        }, 200)
+    })
 }
-
-colorTwo.addEventListener("click", function(){
-    growColor()
-})
