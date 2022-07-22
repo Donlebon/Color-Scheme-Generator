@@ -1,0 +1,69 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Kanit', sans-serif;
+}
+
+.flex{
+    display: flex;
+}
+
+
+/* Picker Section */
+
+.picker{
+    padding: 1em 0;
+    justify-content: center;
+}
+
+#picker_color{
+    height: 40px; 
+    width: 50px;
+}
+
+.picker_box{
+    height: 40px;
+    width: 300px;
+    margin: 0 2em;
+}
+
+#picker_scheme{
+    padding: 0 1em;
+    border: 1px solid grey;
+    border-radius: 0.3em;
+    cursor: pointer;
+}
+
+/* Picker Scheme Animation */
+
+.picker-original{
+    color: #EB1D36;
+    background-color: white;
+    transition: 200ms;
+}
+
+.picker-clicked{
+    color: white;
+    background-color: #EB1D36;
+    transition: 200ms;
+}
+
+/* Color Section */
+
+.color{
+    flex-basis: 20%;
+    height: 450px;
+    transition: 1000ms;
+}
+
+h1{
+    flex-basis: 20%;
+    text-align: center;
+}
+
+/* Animation */
+
+.colorEmpty{
+    height: 0px;
+}
